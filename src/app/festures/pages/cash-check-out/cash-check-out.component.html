@@ -1,0 +1,88 @@
+<section class="m-sec-style w-[50%] mx-auto">
+    <h1 class="text-center text-main text-3xl">Check Out</h1>
+    <form [formGroup]="checkoutForm" class="my-6">
+        <div class="mb-6">
+
+            @let detalisControl=checkoutForm.get('details');
+            <label for="details" class="block mb-2 text-sm font-medium text-gray-900">Details</label>
+            <textarea id="details" formControlName="details"
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-main dark:text-black dark:focus:ring-main dark:focus:border-main"></textarea>
+            @if(detalisControl?.errors && detalisControl?.touched){
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @if(detalisControl?.getError('pattern')){
+                        <li>Enter Valid Details</li>
+                        } @if(detalisControl?.getError('required')){
+                        <li>Details is required</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+
+        </div>
+        <div class="mb-6">
+            @let phoneControl=checkoutForm.get('phone');
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Phone</label>
+            <input id="phone" type="tel" formControlName="phone"
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-main dark:text-black dark:focus:ring-main dark:focus:border-main" />
+            @if(phoneControl?.errors && phoneControl?.touched){
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @if(phoneControl?.getError('pattern')){
+                        <li>accept only egypt phone numbers</li>
+                        } @if(phoneControl?.getError('required')){
+                        <li>phone is required</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="mb-6">
+            @let cityControl=checkoutForm.get('city');
+            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">City</label>
+            <input id="city" type="text" formControlName="city"
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-main dark:text-black dark:focus:ring-main dark:focus:border-main" />
+            @if(cityControl?.errors && cityControl?.touched){
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @if(cityControl?.getError('pattern')){
+                        <li>accept only egypt phone numbers</li>
+                        } @if(cityControl?.getError('required')){
+                        <li>phone is required</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+        <button type="" (click)="submitForm()" [disabled]="checkoutForm.invalid || isLoading" class="btn-main block ms-auto rounded-sm">cash Payment @if(isLoading){
+            <span><i class="fa fa-spin fa-spinner"></i></span>
+            }</button>
+    </form>
+</section>

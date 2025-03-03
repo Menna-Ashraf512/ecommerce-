@@ -1,0 +1,59 @@
+<section class=" w-[75%] mx-auto ">
+    <div class="m-sec-style">
+        <h1 class="text-center text-main text-4xl">Shop Cart</h1>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+@if(wishList.data.length===0){
+    <div class="flex justify-center flex-col gap-y-3 items-center my-3">
+        <img src="/images/wishList.jpg" class="w-[400px] h-[400px] object-cover" alt="emptyCart">
+        <h4 class="font-semibold text-3xl">No Product</h4>
+        <p class="">Go find the Product You Like</p>
+    </div>
+}@else {
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-16 py-3">
+                    <span class="sr-only">Image</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Product
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        @for (prod of wishList.data; track prod._id) {
+        <tbody>
+            <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4" [routerLink]="['/details',prod.id]">
+                    <img [src]="prod.imageCover" class="w-16 md:w-32 max-w-full max-h-full"
+                        alt="{{prod.title}}">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-black">
+                    {{prod.title}}
+                </td>
+
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-black">
+                    {{prod.price| currency:"EGP"}}
+                </td>
+                <td class="px-6 py-4">
+                    <a (click)="removeItem(prod._id)"
+                        class="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer">Remove</a>
+                </td>
+            </tr>
+
+        </tbody>
+        }
+    </table>
+}
+        </div>
+
+    </div>
+
+
+</section>

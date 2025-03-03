@@ -1,0 +1,7 @@
+<h1 class="text-4xl mb-4">Popular Products</h1>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-7 ">
+  @for (product of products().slice(0,10); track $index) {
+  <app-product-item [product]="product"></app-product-item>
+  }
+</div>
+

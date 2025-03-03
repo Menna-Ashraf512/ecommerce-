@@ -1,0 +1,13 @@
+.product{
+    border: 1px solid #FFCE00;
+    box-shadow: inset #F9F0C7 0px 1px 20px 7px;
+    padding: 1.5rem;
+    border-radius: 20px;
+    transition: all .5s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+.text-red{
+    color: red;
+}

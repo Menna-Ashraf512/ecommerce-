@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+:root {
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+      rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+      rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+    --font-family: "Playfair Display", serif;
+    --rating-color: #ffc908;
+  }
+body {
+    font-family: var(--font-family) !important;
+    // font-size: 20px
+  }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-main{
+  @apply disabled:bg-gray bg-yellow-300 text-black px-12 py-2 mt-7 border rounded hover:bg-main transition-colors duration-500
+}
+
+
+.m-sec-style{
+ @apply bg-zinc-50 border rounded p-4 shadow
+}

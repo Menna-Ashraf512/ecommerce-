@@ -1,0 +1,13 @@
+{
+    "nav": {
+      "home": "Home",
+      "cart": "Cart",
+      "products": "Products",
+      "categories": "Categories",
+      "brands": "Brands",
+      "signOut": "Sign Out",
+      "register":"Register",
+      "login":"Login"
+    }
+  }
+  
